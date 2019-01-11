@@ -1,2 +1,3 @@
-setup
+### Execute Tests
 
+`npm run test`
