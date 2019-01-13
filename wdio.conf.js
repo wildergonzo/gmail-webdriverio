@@ -6,7 +6,21 @@ exports.config = {
     //
     // WebdriverIO allows it to run your tests in arbitrary locations (e.g. locally or
     // on a remote machine).
-    runner: 'local',
+    // runner: 'local',
+
+    // =====================
+    // Server Configurations
+    // =====================
+    // Host address of the running Selenium server. This information is usually obsolete as
+    // WebdriverIO automatically connects to localhost. Also if you are using one of the
+    // supported cloud services like Sauce Labs, Browserstack or Testing Bot you also don't
+    // need to define host and port information because WebdriverIO can figure that out
+    // according to your user and key information. However if you are using a private Selenium
+    // backend you should define the host address, port, and path here.
+    //
+    hostname: '0.0.0.0',
+    port: 4444,
+    path: '/wd/hub',
     
     //
     // ==================
@@ -54,17 +68,14 @@ exports.config = {
         //
         browserName: 'chrome',
         'goog:chromeOptions': {
-        // to run chrome headless the following flags are required
-        // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
-        // args: ['--headless', '--disable-gpu'],
-        },        
+            args: ['--start-maximized', '--disable-infobars']
+        }
     },
     {
         maxInstances: 5,
         browserName: 'firefox',
         "moz:firefoxOptions": {
-          // flag to activate Firefox headless mode (see https://github.com/mozilla/geckodriver/blob/master/README.md#firefox-capabilities for more details about moz:firefoxOptions)
-          // args: ['-headless']
+            args: ['--headless']
         }
     }],
     //
@@ -87,7 +98,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://mailtrack.io/en/',
+    baseUrl: 'https://webdriver.io/',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -104,7 +115,7 @@ exports.config = {
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
     // services: [],//
-    services: ['selenium-standalone'],
+    // services: ['selenium-standalone'],
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks.html
