@@ -32,7 +32,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/**/*.js'
+        './test/specs/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -70,12 +70,6 @@ exports.config = {
         'goog:chromeOptions': {
             args: ['--start-maximized', '--disable-infobars']
         }
-    }, {
-        maxInstances: 5,
-        browserName: 'firefox',
-        "moz:firefoxOptions": {
-          args: ['-headless']
-        }
     }],
     //
     // ===================
@@ -84,7 +78,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error
-    logLevel: 'error',
+    logLevel: 'debug',
     //
     // Warns when a deprecated command is used
     deprecationWarnings: true,
@@ -132,7 +126,8 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: 60000,
+        compilers: ['js:@babel/register']
     },
     //
     // =====
