@@ -70,12 +70,11 @@ exports.config = {
         'goog:chromeOptions': {
             args: ['--start-maximized', '--disable-infobars']
         }
-    },
-    {
+    }, {
         maxInstances: 5,
         browserName: 'firefox',
         "moz:firefoxOptions": {
-            args: ['--headless']
+          args: ['-headless']
         }
     }],
     //
