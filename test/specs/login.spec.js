@@ -1,10 +1,11 @@
 import { expect } from 'chai';
 import LoginPage from '../../src/pages/login.page';
+import { credentials } from '../../config/config.json';
 
 describe('login', () => {
     it('should sign in successfully', () => {
-        const email = 'vader.mailtrack@gmail.com';
-        const password = 'vaderMTvader';
+        const email = credentials.email;
+        const password = credentials.password;
 
         LoginPage.open();
         LoginPage.signInAs(email, password);
