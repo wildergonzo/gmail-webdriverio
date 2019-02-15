@@ -1,6 +1,5 @@
 import { expect } from 'chai';
 import LoginPage from '../../src/pages/login.page';
-import { credentials } from '../../config/config.json';
 
 describe('login', () => {
     it('should sign in successfully', () => {
