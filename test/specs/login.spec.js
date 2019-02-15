@@ -4,8 +4,8 @@ import { credentials } from '../../config/config.json';
 
 describe('login', () => {
     it('should sign in successfully', () => {
-        const email = credentials.email;
-        const password = credentials.password;
+        const email = process.env.EMAIL;
+        const password = process.env.PASSWORD;
 
         LoginPage.open();
         LoginPage.signInAs(email, password);
