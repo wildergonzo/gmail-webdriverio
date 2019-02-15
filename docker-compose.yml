@@ -3,18 +3,18 @@ version: "3"
 services:
 
   selenium-hub:
-    image: selenium/hub:3.141.59-dubnium
+    image: selenium/hub:${TAG}
     container_name: selenium-hub
     ports:
       - "4444:4444"
     healthcheck:
-      test: ["CMD", "./opt/bin/check-grid.sh"]
-      interval: 5s
-      timeout: 30s
+      test: ["CMD", "sh", "./opt/bin/check-grid.sh"]
+      interval: 3s
+      timeout: 20s
       retries: 5
 
   chrome:
-    image: selenium/node-chrome-debug:3.141.59-dubnium
+    image: selenium/node-chrome-debug:${TAG}
     volumes:
       - /dev/shm:/dev/shm
     depends_on:
@@ -26,7 +26,7 @@ services:
       - "5900:5900"
 
   firefox:
-    image: selenium/node-firefox-debug:3.141.59-dubnium
+    image: selenium/node-firefox-debug:${TAG}
     volumes:
       - /dev/shm:/dev/shm
     depends_on:
@@ -39,7 +39,7 @@ services:
     build: "."
     image: e2e-tests:latest
     working_dir: /code
-    command: "npm run test -- --hostname selenium-hub"
+    command: ["sh", "./wait-for-grid.sh", "selenium-hub", "--", "npm", "test", "--", "--hostname selenium-hub"]
     depends_on:
       - selenium-hub
       - chrome
