@@ -12,6 +12,8 @@ services:
       interval: 3s
       timeout: 20s
       retries: 5
+    logging:
+      driver: none
 
   chrome:
     image: selenium/node-chrome-debug:${TAG}
@@ -24,6 +26,8 @@ services:
       - HUB_PORT=4444
     ports:
       - "5900:5900"
+    logging:
+      driver: none
 
   firefox:
     image: selenium/node-firefox-debug:${TAG}
@@ -34,6 +38,8 @@ services:
     environment:
       - HUB_HOST=selenium-hub
       - HUB_PORT=4444
+    logging:
+      driver: none
 
   e2e-tests:
     build: "."

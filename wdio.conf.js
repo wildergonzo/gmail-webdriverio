@@ -68,7 +68,7 @@ exports.config = {
         //
         browserName: 'chrome',
         'goog:chromeOptions': {
-            args: ['--start-maximized', '--disable-infobars']
+            args: ['start-maximized', 'disable-infobars']
         }
     }],
     //
@@ -78,7 +78,7 @@ exports.config = {
     // Define all options that are relevant for the WebdriverIO instance here
     //
     // Level of logging verbosity: trace | debug | info | warn | error
-    logLevel: 'debug',
+    logLevel: 'error',
     //
     // Warns when a deprecated command is used
     deprecationWarnings: true,
@@ -120,7 +120,7 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
-    // reporters: ['dot'],
+    reporters: ['spec'],
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -159,8 +159,11 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        var chai = require('chai');
+        global.expect = chai.expect;
+        chai.Should();
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

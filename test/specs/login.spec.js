@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import LoginPage from '../../src/pages/login.page';
 
 describe('login', () => {
