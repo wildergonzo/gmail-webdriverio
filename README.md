@@ -4,13 +4,19 @@
 * [docker](https://www.docker.com/community-edition#/overview)
 * [docker-compose](https://docs.docker.com/compose/install/)
 
+
 ### Setup
 
-`npm install`
+- Rename `config/config.template.json` to `config/config.json` and set valid credentials (email/password)
 
-### Execute Tests (locally)
+- Set the [docker-selenium](https://github.com/SeleniumHQ/docker-selenium/releases) image version to use in `.env` file.
+e.g: TAG=3.141.59-gold.
 
-`npm run test`
+### Execute Tests (local)
+
+`npm insall`
+
+`npm test`
 
 ### Execute Tests (docker selenium grid)
 
