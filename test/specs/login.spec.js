@@ -1,9 +1,12 @@
 import LoginPage from '../../src/pages/login.page';
+import { credentials } from '../../config/config.json'
+
+const email = process.env.EMAIL || credentials.email;
+const password = process.env.PASSWORD || credentials.password;
 
 describe('login', () => {
+
     it('should sign in successfully', () => {
-        const email = process.env.EMAIL;
-        const password = process.env.PASSWORD;
 
         LoginPage.open();
         LoginPage.signInAs(email, password);
