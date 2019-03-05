@@ -14,9 +14,13 @@ e.g: TAG=3.141.59-gold.
 
 ### Execute Tests (local)
 
-`npm insall`
+`npm install`
 
-`npm test`
+`npm run test:local`
+
+##### Execute single spec
+
+`npm run test:local -- --spec /path/to/spec`
 
 ### Execute Tests (docker selenium grid)
 
