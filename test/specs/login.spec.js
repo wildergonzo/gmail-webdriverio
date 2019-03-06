@@ -11,6 +11,6 @@ describe('login', () => {
         LoginPage.open();
         LoginPage.signInAs(email, password);
 
-        expect(LoginPage.getTitle()).to.include(email);
+        LoginPage.getTitle().should.include(email);
     });
 });

@@ -20,7 +20,7 @@ export default class Page {
     		const state = browser.execute(function () {
                 return document.readyState;
             });
-            return state.value === 'complete';
+            return state === 'complete';
     	}, timeout, timeoutMsg);
     }
 }

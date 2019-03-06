@@ -2,12 +2,13 @@ import Page from './base.page';
 
 class LoginPage extends Page {
 
+    get gmailUrl() { return 'https://www.google.com/gmail/' }
     get emailTxt() { return $('#identifierId'); }
     get passwordTxt() { return $('input.whsOnd.zHQkBf'); }
     get nextBtn() { return $('span.RveJvd.snByac'); }
 
     open() {
-        super.open('https://www.google.com/gmail/');
+        super.open(this.gmailUrl);
     }
 
     signInAs(email, password) {
@@ -17,8 +18,7 @@ class LoginPage extends Page {
         super.pause(2000);
         this.passwordTxt.setValue(password);
         this.nextBtn.click();
-        //super.waitUntilPageIsLoaded(6000, 'expected gmail to be loaded after 6s');  
-        super.pause(6000); // have to replace this.
+        super.pause(5000);
     }
 
     getTitle() {
