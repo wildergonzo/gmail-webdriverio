@@ -1,7 +1,4 @@
 export default class Page {
-    constructor() {
-        this.title = 'Gmail';
-    }
 
     open(path) {
         browser.url(path);

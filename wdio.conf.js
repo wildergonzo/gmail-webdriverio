@@ -32,7 +32,7 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/*.js'
+        './test/specs/*.ts'
     ],
     // Patterns to exclude.
     exclude: [
@@ -127,7 +127,9 @@ exports.config = {
     mochaOpts: {
         ui: 'bdd',
         timeout: 60000,
-        compilers: ['js:@babel/register']
+        compilers: [
+            'tsconfig-paths/register'
+        ]
     },
     //
     // =====
@@ -160,6 +162,7 @@ exports.config = {
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
     before: function (capabilities, specs) {
+        require('ts-node').register({ files: true });
         var chai = require('chai');
         global.expect = chai.expect;
         chai.should();

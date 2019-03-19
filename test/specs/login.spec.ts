@@ -1,5 +1,5 @@
-import LoginPage from '../../src/pages/login.page';
-import { credentials } from '../../config/config.json'
+import LoginPage from 'src/pages/login.page';
+import { credentials } from 'config/config.json'
 
 const email = process.env.EMAIL || credentials.email;
 const password = process.env.PASSWORD || credentials.password;
