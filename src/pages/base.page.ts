@@ -20,4 +20,23 @@ export default class Page {
             return state === 'complete';
     	}, timeout, timeoutMsg);
     }
+
+    setValueWhenDisplayed(element, value) {
+        try {
+            element.waitForDisplayed(5000);
+            element.setValue(value);
+        } catch(e) {
+            return;
+        }
+    }
+
+    clickWhenDisplayed(element) {
+        try {
+            element.waitForDisplayed(5000);
+            element.click();
+        } catch(e) {
+            return;
+        }
+    }
+
 }
