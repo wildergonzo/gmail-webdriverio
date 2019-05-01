@@ -1,27 +1,27 @@
 export default class Page {
 
-    open(path) {
+    public open(path) {
         browser.url(path);
     }
 
-    getTitle() {
-    	return browser.getTitle();
+    public getTitle() {
+        return browser.getTitle();
     }
 
-    pause(ms) {
-    	browser.pause(ms);
+    public pause(ms) {
+        browser.pause(ms);
     }
 
-    waitUntilPageIsLoaded(timeout, timeoutMsg) {
-    	browser.waitUntil(() => {
-    		const state = browser.execute(function () {
+    public waitUntilPageIsLoaded(timeout, timeoutMsg) {
+        browser.waitUntil(() => {
+            const state = browser.execute(() => {
                 return document.readyState;
             });
             return state === 'complete';
-    	}, timeout, timeoutMsg);
+        }, timeout, timeoutMsg);
     }
 
-    setValueWhenDisplayed(element, value) {
+    public setValueWhenDisplayed(element, value) {
         try {
             element.waitForDisplayed(5000);
             element.setValue(value);
@@ -30,7 +30,7 @@ export default class Page {
         }
     }
 
-    clickWhenDisplayed(element) {
+    public clickWhenDisplayed(element) {
         try {
             element.waitForDisplayed(5000);
             element.click();
