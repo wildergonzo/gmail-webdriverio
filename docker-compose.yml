@@ -46,7 +46,7 @@ services:
     image: e2e-tests:latest
     working_dir: /code
     env_file: .env
-    command: ["sh", "./wait-for-grid.sh", "selenium-hub", "--", "npm", "test", "--", "--hostname selenium-hub"]
+    command: ["sh", "./wait-for-grid.sh", "selenium-hub", "--", "npm test", "--", "--hostname selenium-hub"]
     depends_on:
       - selenium-hub
       - chrome
